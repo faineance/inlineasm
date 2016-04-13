@@ -1,4 +1,5 @@
-# inlineasm [![PyPI version](https://badge.fury.io/py/inlineasm.svg)](https://badge.fury.io/py/inlineasm) [![PyPI](https://img.shields.io/pypi/l/inlineasm.svg?maxAge=2592000?style=flat-square)]()
+# inlineasm [![PyPI](https://img.shields.io/pypi/dm/inlineasm.svg?maxAge=2592000)](https://pypi.python.org/pypi/inlineasm/)
+
 Inline assembly/machine code in Python. And you thought it couldn't get any worse.
 ## Examples
 
