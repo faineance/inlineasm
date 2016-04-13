@@ -2,18 +2,18 @@ from ctypes import *
 from mmap import *
 import tempfile
 import subprocess
+import os
 
 libc = cdll.LoadLibrary("libc.so.6")
 mmap = libc.mmap
-import os
 
 munmap = libc.munmap
 munmap.argtype = [c_void_p, c_size_t]
 
 
 class assemble(object):
-    def __init__(self, code, ret_type, *arg_types, nasm=False):
-        if nasm:
+    def __init__(self, code, ret_type, *arg_types, raw=False):
+        if not raw:
             with tempfile.NamedTemporaryFile(suffix='.asm') as tmp:
                 tmp.write(str.encode(code))
                 tmp.flush()
@@ -44,4 +44,10 @@ class assemble(object):
         return self.func
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        munmap(self.mem, self.length)
+
+    def __call__(self, *args, **kwargs):
+        return self.func(*args, **kwargs)
+
+    def __del__(self):
         munmap(self.mem, self.length)
