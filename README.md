@@ -1,6 +1,6 @@
 # inlineasm [![PyPI](https://img.shields.io/pypi/dm/inlineasm.svg?maxAge=2592000)](https://pypi.python.org/pypi/inlineasm/)
 
-Inline assembly/machine code in Python. And you thought it couldn't get any worse.
+Inline assembly/machine code in Python. 
 ## Informal Docs
 `assemble(<code>, <return_type>, *<arg_types>, <is raw machine code?>`
 ## Examples
